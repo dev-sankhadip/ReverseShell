@@ -25,3 +25,10 @@ def bind_socket():
     except socket.error as msg:
         print("Socket binding error"+str(msg)+"\n"+"Trying....")
         bind_socket()
+
+
+def socket_accept():
+    conn,address = s.accept()
+    print("Socket connection established | IP "+address[0]+" | PORT "+address[1])
+    send_command(conn)
+    conn.close()
